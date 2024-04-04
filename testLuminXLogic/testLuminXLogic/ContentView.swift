@@ -13,6 +13,11 @@ struct peripheralData: Identifiable {
     var id: UUID
     var peripheral: CBPeripheral
     
+    init(id: UUID, peripheral: CBPeripheral) {
+        self.id = id
+        self.peripheral = peripheral
+    }
+    
     var powerControlCharacteristic: CBCharacteristic?
     var modeControlCharacteristic: CBCharacteristic?
     var rgbwColourCharacteristic: CBCharacteristic?
@@ -64,6 +69,21 @@ class BLEViewModel: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeri
                 buffer.deallocate()
             }
         }
+    }
+    
+    // Disconnect from peripheral
+    func peripheralDisconnect(_ peripheral: CBPeripheral) {
+        print("--------- Attempting to disconnect peripheral ---------")
+        self.centralManager?.cancelPeripheralConnection(peripheral)
+        
+        self.updatePeripheral(peripheral: peripheral)
+    }
+    
+    func peripheralConnect(_ peripheral: CBPeripheral) {
+        print("--------- Attempting to connect to peripheral ---------")
+        self.centralManager?.connect(peripheral, options: nil)
+        
+        self.updatePeripheral(peripheral: peripheral)
     }
     
     // Discover any services - called as a result of connect()
@@ -171,6 +191,13 @@ class BLEViewModel: NSObject, ObservableObject, CBCentralManagerDelegate, CBPeri
     func updatePeripheralList() {
         for i in 0...(peripherals.count - 1) {
             peripheralList[i].peripheral = peripherals[i]
+        }
+    }
+    func updatePeripheral(peripheral: CBPeripheral) {
+        for i in 0...(peripherals.count - 1) {
+            if peripheralList[i].id == peripheral.identifier {
+                peripheralList[i].peripheral = peripheral
+            }
         }
     }
     func updatePowerControlCharacteristic(characteristic: CBCharacteristic, peripheral: CBPeripheral) {
@@ -291,8 +318,10 @@ struct ContentView: View {
                             powerControlCharacteristic: peripheral.powerControlCharacteristic,
                             modeControlCharacteristic: peripheral.modeControlCharacteristic,
                             intensityCharacteristic: peripheral.intensityCharacterisitc,
-                            rgbwColourCharacteristic: peripheral.rgbwColourCharacteristic)},
-                        label: {Text("Name - \(peripheral.peripheral.name ?? "Unknown")")})
+                            rgbwColourCharacteristic: peripheral.rgbwColourCharacteristic,
+                            disconnect: bleViewModel.peripheralDisconnect,
+                            connect: bleViewModel.peripheralConnect)},
+                        label: {Text("Name: \(peripheral.peripheral.name ?? "Unknown") - State: \(peripheral.peripheral.state.rawValue == 2 || peripheral.peripheral.state.rawValue == 1 ? "Connected" : "Disconnected")")})
                 }
                 .navigationTitle("Peripherals")
                 .listRowSpacing(8)

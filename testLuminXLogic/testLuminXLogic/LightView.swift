@@ -73,15 +73,15 @@ struct LightView: View {
                         Button(action: {data.writeValue(Data(bytes: &powerOff, count: MemoryLayout.size(ofValue: powerOff)), for: powerCharac, type: .withResponse)}, label: {Text("Power off")})
                     }
                     if let modeCharac = modeControlCharacteristic {
-                        Button(action: {data.writeValue(Data(bytes: &modeColourSensing, count: MemoryLayout.size(ofValue: modeColourSensing)), for: modeCharac, type: .withResponse)}, label: {Text("Colour Sensing Mode")})
+                        Button(action: {data.writeValue(Data(bytes: &modeColourSensing, count: MemoryLayout.size(ofValue: modeColourSensing)), for: modeCharac, type: .withResponse)}, label: {Text("Colour Enhancement Mode")})
                         Button(action: {data.writeValue(Data(bytes: &modeSunrise, count: MemoryLayout.size(ofValue: modeSunrise)), for: modeCharac, type: .withResponse)}, label: {Text("Sunrise Mode")})
                         Button(action: {data.writeValue(Data(bytes: &modeSunset, count: MemoryLayout.size(ofValue: modeSunset)), for: modeCharac, type: .withResponse)}, label: {Text("Sunset Mode")})
                         Button(action: {data.writeValue(Data(bytes: &modeAnalogous, count: MemoryLayout.size(ofValue: modeAnalogous)), for: modeCharac, type: .withResponse)}, label: {Text("Analogous Mode")})
                         Button(action: {data.writeValue(Data(bytes: &modeWhite, count: MemoryLayout.size(ofValue: modeWhite)), for: modeCharac, type: .withResponse)}, label: {Text("White Mode")})
                     }
-                    if let colourCharac = rgbwColourCharacteristic {
-                        Button(action: {data.writeValue(Data(bytes: &redColour, count: MemoryLayout.size(ofValue: modeColourSensing)), for: colourCharac, type: .withResponse)}, label: {Text("Red Colour")})
-                    }
+//                    if let colourCharac = rgbwColourCharacteristic {
+//                        Button(action: {data.writeValue(Data(bytes: &redColour, count: MemoryLayout.size(ofValue: modeColourSensing)), for: colourCharac, type: .withResponse)}, label: {Text("Red Colour")})
+//                    }
                     if let power = powerControlCharacteristic, let mode = modeControlCharacteristic, let colour = rgbwColourCharacteristic, let intensity = intensityCharacteristic {
                         Button(action: {data.readValue(for: power); data.readValue(for: mode); data.readValue(for: colour); data.readValue(for: intensity)}, label: {Text("Read all values")})
                     }

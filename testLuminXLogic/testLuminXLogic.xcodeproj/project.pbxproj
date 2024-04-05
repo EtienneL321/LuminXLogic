@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D770974B2BB6192900D0D124 /* ButtonPressActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D770974A2BB6192900D0D124 /* ButtonPressActions.swift */; };
 		D770974D2BB61C3900D0D124 /* LightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D770974C2BB61C3900D0D124 /* LightView.swift */; };
 		D7D30DF12BBE1F3800CDB485 /* LightViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D30DF02BBE1F3800CDB485 /* LightViewTest.swift */; };
 		D7D93A272BAA650D009E7633 /* testLuminXLogicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D93A262BAA650D009E7633 /* testLuminXLogicApp.swift */; };
@@ -17,7 +16,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D770974A2BB6192900D0D124 /* ButtonPressActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPressActions.swift; sourceTree = "<group>"; };
 		D770974C2BB61C3900D0D124 /* LightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightView.swift; sourceTree = "<group>"; };
 		D7D30DF02BBE1F3800CDB485 /* LightViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightViewTest.swift; sourceTree = "<group>"; };
 		D7D93A232BAA650D009E7633 /* testLuminXLogic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testLuminXLogic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,7 +63,6 @@
 				D7D30DF02BBE1F3800CDB485 /* LightViewTest.swift */,
 				D7D93A2A2BAA6510009E7633 /* Assets.xcassets */,
 				D7D93A2C2BAA6510009E7633 /* Preview Content */,
-				D770974A2BB6192900D0D124 /* ButtonPressActions.swift */,
 			);
 			path = testLuminXLogic;
 			sourceTree = "<group>";
@@ -148,7 +145,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D770974B2BB6192900D0D124 /* ButtonPressActions.swift in Sources */,
 				D7D30DF12BBE1F3800CDB485 /* LightViewTest.swift in Sources */,
 				D770974D2BB61C3900D0D124 /* LightView.swift in Sources */,
 				D7D93A292BAA650D009E7633 /* ContentView.swift in Sources */,
@@ -283,6 +279,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"testLuminXLogic/Preview Content\"";
@@ -315,6 +312,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"testLuminXLogic/Preview Content\"";
